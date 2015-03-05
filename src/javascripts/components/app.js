@@ -3,7 +3,12 @@ var React = require('react'),
 
 var DisplayItem = React.createClass({
   render: function() {
-    return <a href={this.props.url}>{this.props.name}</a>;
+    return (
+      <div>
+        <a href={this.props.url}>{this.props.name}</a>;
+        <span>{this.props.description}</span>
+      </div>
+    );
   }
 });
 
@@ -20,7 +25,7 @@ var App = React.createClass({
 
   render: function() {
     var repositories = this.state.repositories.map((repository) => {
-      return <DisplayItem url={repository.html_url} name={repository.name} />;
+      return <DisplayItem url={repository.html_url} name={repository.name} description={repository.description} />;
     });
 
     return (
