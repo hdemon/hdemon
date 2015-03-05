@@ -1,4 +1,5 @@
 var React = require('react'),
+    _ = require('lodash'),
     axios = require('axios');
 
 var DisplayItem = React.createClass({
@@ -19,7 +20,9 @@ var App = React.createClass({
 
   componentDidMount: function() {
     axios.get('https://hdemon-backend.herokuapp.com/api/repositories').then((response) => {
-      this.setState({ repositories: response.data.data });
+      var repositories = response.data.data;
+      repositories = _.sortBy(repositories, (repository) => { return repository.stargazers_count; }).reverse();
+      this.setState({ repositories: repositories });
     })
   },
 
