@@ -24,10 +24,9 @@ var ArticleItem = React.createClass({
   }
 });
 
-
 var App = React.createClass({
   getInitialState: function() {
-    return {repositories: []};
+    return {repositories: [], articles: []};
   },
 
   componentDidMount: function() {
@@ -41,6 +40,8 @@ var App = React.createClass({
       var articles = response.data.data;
       this.setState({ articles: articles });
     });
+
+    this.setState({ context: 'articles' });
   },
 
   repositories: function() {
