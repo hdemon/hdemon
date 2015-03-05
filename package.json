@@ -12,8 +12,7 @@
     "start": "",
     "test": ""
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "browserify": "^8.1.1",
     "gulp": "^3.8.10",
@@ -23,6 +22,7 @@
     "uglifyify": "^3.0.1",
     "babelify": "~5.0.3",
     "gulp-browserify": "~0.5.1",
-    "gulp-watch": "~4.1.1"
+    "gulp-watch": "~4.1.1",
+    "react": "~0.12.2"
   }
 }
