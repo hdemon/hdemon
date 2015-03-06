@@ -60,15 +60,15 @@ var App = React.createClass({
     this.setState({ context: 'articles' });
   },
 
-  onClickRepositoriesButton: function() {
-    this.setState({ context: 'repositories' });
+  onClickWorksButton: function() {
+    this.setState({ context: 'works' });
   },
 
   render: function() {
     var contents = "";
 
     switch (this.state.context) {
-      case 'repositories':
+      case 'works':
         contents = this.repositories();
         break;
       case 'articles':
@@ -81,8 +81,8 @@ var App = React.createClass({
 
     return (
       <div>
-        <div onClick={this.onClickArticlesButton}>Articles</div>
-        <div onClick={this.onClickRepositoriesButton}>Repositories</div>
+        <div onClick={this.onClickWorksButton}>works</div>
+        <div onClick={this.onClickArticlesButton}>articles</div>
         {contents}
       </div>
     )
