@@ -14,11 +14,29 @@ var RepositoryItem = React.createClass({
 });
 
 var ArticleItem = React.createClass({
+  propTypes: {
+    showArticle: React.PropTypes.func.isRequired
+  },
+
+  showArticle: function() {
+    this.props.showArticle(this.props.name);
+  },
+
   render: function() {
     return (
       <div>
-        <span>{this.props.title}</span>
+        <span onClick={this.showArticle}>{this.props.title}</span>
         <span>{this.props.publishDate}</span>
+      </div>
+    );
+  }
+});
+
+var Article = React.createClass({
+  render: function() {
+    return (
+      <div>
+        {this.props.content}
       </div>
     );
   }
@@ -52,8 +70,21 @@ var App = React.createClass({
 
   articles: function() {
     return this.state.articles.map((article) => {
-      return <ArticleItem title={article.title} publishDate={article.publish_date} />;
+      return <ArticleItem name={article.name} title={article.title} publishDate={article.publish_date} showArticle={this.showArticle}/>;
     });
+  },
+
+  article: function() {
+    return <Article name={this.state.article.name} content={this.state.article.content}/>;
+  },
+
+  showArticle: function(name) {
+    axios.get('https://hdemon-backend.herokuapp.com/api/articles/' + name).then((response) => {
+      var article = response.data.data;
+      this.setState({ article: article });
+      this.setState({ context: 'article' });
+    });
+
   },
 
   onClickArticlesButton: function() {
@@ -74,6 +105,9 @@ var App = React.createClass({
       case 'articles':
         contents = this.articles();
         break;
+      case 'article':
+        contents = this.article(this.state.article);
+        break;
       default:
         contents = this.repositories();
         break;
@@ -81,8 +115,10 @@ var App = React.createClass({
 
     return (
       <div>
-        <div onClick={this.onClickWorksButton}>works</div>
-        <div onClick={this.onClickArticlesButton}>articles</div>
+        <nav>
+          <div onClick={this.onClickWorksButton}>works</div>
+          <div onClick={this.onClickArticlesButton}>articles</div>
+        </nav>
         {contents}
       </div>
     )
