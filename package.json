@@ -16,6 +16,7 @@
     "arda": "^0.10.0",
     "axios": "~0.5.0",
     "lodash": "~3.3.1",
+    "page": "^1.6.1",
     "ypromise": "^0.3.0"
   },
   "devDependencies": {
