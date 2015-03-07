@@ -1,9 +1,9 @@
 var _ = require('lodash'),
     Arda = require('arda'),
     axios = require('axios');
-var RepositoriesContextComponent = require('../components/repositories_context_component');
+var WorksContextComponent = require('../components/works_context');
 
-class RepositoriesContext extends Arda.Context {
+class WorksContext extends Arda.Context {
   delegate(subscribe) {
     super.delegate()
     subscribe('context:created', () => {
@@ -20,6 +20,6 @@ class RepositoriesContext extends Arda.Context {
     })
   }
 }
-RepositoriesContext.component = RepositoriesContextComponent;
+WorksContext.component = WorksContextComponent;
 
-module.exports = RepositoriesContext
+module.exports = WorksContext
