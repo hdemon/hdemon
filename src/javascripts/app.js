@@ -1,7 +1,10 @@
-var React = require('react'),
-    App = require('./components/app');
+window.React = require('react');
+window.Promise = require('ypromise');
+var Arda = require('arda');
+var RepositoriesContext = require('./contexts/repositories')
 
-React.render(
-  React.createFactory(App)(),
-  document.getElementById('app')
-);
+window.addEventListener('DOMContentLoaded', () => {
+  var router = new Arda.Router(Arda.DefaultLayout, document.querySelector('#app'))
+  router.pushContext(RepositoriesContext, {})
+  // router.pushContext(ArticlesContext, {})
+});

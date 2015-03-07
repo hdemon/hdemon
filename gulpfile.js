@@ -11,7 +11,7 @@ gulp.task('build', function() {
   }).pipe(browserify({
     transform: ['babelify', 'reactify'],
     debug: true
-  })).pipe(uglify())
+  }))
   .pipe(gulp.dest('./dist'));
 });
 
