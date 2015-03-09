@@ -1,4 +1,5 @@
-var Arda = require('arda')
+var Arda = require('arda'),
+    page = require('page')
 
 class ArticleItem extends Arda.Component {
   propTypes: {
@@ -6,13 +7,14 @@ class ArticleItem extends Arda.Component {
   }
 
   showArticle() {
-    this.props.showArticle(this.props.name);
+    var path = '/articles/' + encodeURIComponent(this.props.name)
+    page(path)
   }
 
   render() {
     return (
       <div>
-        <span onClick={this.showArticle}>{this.props.title}</span>
+        <span onClick={this.showArticle.bind(this)}>{this.props.title}</span>
         <span>{this.props.publishDate}</span>
       </div>
     );

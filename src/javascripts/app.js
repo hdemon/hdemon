@@ -3,13 +3,15 @@ window.Promise = require('ypromise');
 var Arda = require('arda'),
     page = require('page')
 var WorksContext = require('./contexts/works'),
-    ArticlesContext = require('./contexts/articles')
+    ArticlesContext = require('./contexts/articles'),
+    ArticleContext = require('./contexts/article')
 
 window.addEventListener('DOMContentLoaded', () => {
   var router = new Arda.Router(Arda.DefaultLayout, document.querySelector('#app'))
 
-  page.start({hashbang: true})
+  page.start({ hashbang: true })
   page('/articles', () => { router.pushContext(ArticlesContext, {}) })
+  page('/articles/:name', (context) => { router.pushContext(ArticleContext, context) })
   page('/works', () => { router.pushContext(WorksContext, {}) })
   page('/articles')
 });
