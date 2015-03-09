@@ -1,5 +1,6 @@
 var _ = require('lodash'),
     Arda = require('arda'),
+    page = require('page'),
     axios = require('axios');
 var ArticlesContextComponent = require('../components/articles_context_component');
 
@@ -14,8 +15,10 @@ class ArticlesContext extends Arda.Context {
     })
 
     subscribe('navigation:clickWorksButton', () => {
+      page('/works')
     })
     subscribe('navigation:clickArticlesButton', () => {
+      page('/articles')
     })
   }
 }
