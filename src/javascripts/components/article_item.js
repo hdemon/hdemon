@@ -13,7 +13,7 @@ class ArticleItem extends Arda.Component {
 
   render() {
     return (
-      <div>
+      <div className="article-item">
         <span onClick={this.showArticle.bind(this)}>{this.props.title}</span>
         <span>{this.props.publishDate}</span>
       </div>

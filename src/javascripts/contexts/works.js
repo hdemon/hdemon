@@ -2,7 +2,7 @@ var _ = require('lodash'),
     Arda = require('arda'),
     page = require('page'),
     axios = require('axios');
-var WorksContextComponent = require('../components/works_context');
+var WorksContextComponent = require('../components/works_context_component');
 
 class WorksContext extends Arda.Context {
   delegate(subscribe) {

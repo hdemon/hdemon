@@ -4,7 +4,7 @@ var Arda = require('arda'),
 class ArticleContent extends Arda.Component {
   render() {
     return (
-      <div>
+      <div className="article-content">
         <span>{this.props.article.content}</span>
       </div>
     );

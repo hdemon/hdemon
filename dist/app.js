@@ -34971,7 +34971,7 @@ var ArticleContent = (function (_Arda$Component) {
       value: function render() {
         return React.createElement(
           "div",
-          null,
+          { className: "article-content" },
           React.createElement(
             "span",
             null,
@@ -35080,7 +35080,7 @@ var ArticleItem = (function (_Arda$Component) {
       value: function render() {
         return React.createElement(
           "div",
-          null,
+          { className: "article-item" },
           React.createElement(
             "span",
             { onClick: this.showArticle.bind(this) },
@@ -35247,12 +35247,12 @@ var Navigation = (function (_Arda$Component) {
           null,
           React.createElement(
             "div",
-            { onClick: this.onClickWorksButton.bind(this) },
+            { className: "works button", onClick: this.onClickWorksButton.bind(this) },
             "works"
           ),
           React.createElement(
             "div",
-            { onClick: this.onClickArticlesButton.bind(this) },
+            { className: "articles button", onClick: this.onClickArticlesButton.bind(this) },
             "articles"
           )
         );
@@ -35340,7 +35340,7 @@ var RepositoryItem = (function (_Arda$Component) {
       value: function render() {
         return React.createElement(
           "div",
-          null,
+          { className: "repository-item" },
           React.createElement(
             "a",
             { href: this.props.url },
@@ -35377,18 +35377,18 @@ var Arda = require("arda");
 var Navigation = require("./navigation"),
     Repositories = require("./repositories");
 
-var WorksContext = (function (_Arda$Component) {
-  function WorksContext() {
-    _classCallCheck(this, WorksContext);
+var WorksContextComponent = (function (_Arda$Component) {
+  function WorksContextComponent() {
+    _classCallCheck(this, WorksContextComponent);
 
     if (_Arda$Component != null) {
       _Arda$Component.apply(this, arguments);
     }
   }
 
-  _inherits(WorksContext, _Arda$Component);
+  _inherits(WorksContextComponent, _Arda$Component);
 
-  _prototypeProperties(WorksContext, null, {
+  _prototypeProperties(WorksContextComponent, null, {
     render: {
       value: function render() {
         var repositories = this.context.shared.state.repositories;
@@ -35412,10 +35412,10 @@ var WorksContext = (function (_Arda$Component) {
     }
   });
 
-  return WorksContext;
+  return WorksContextComponent;
 })(Arda.Component);
 
-module.exports = WorksContext;
+module.exports = WorksContextComponent;
 
 
 },{"./navigation":191,"./repositories":192,"arda":5}],195:[function(require,module,exports){
@@ -35560,7 +35560,7 @@ var _ = require("lodash"),
     Arda = require("arda"),
     page = require("page"),
     axios = require("axios");
-var WorksContextComponent = require("../components/works_context");
+var WorksContextComponent = require("../components/works_context_component");
 
 var WorksContext = (function (_Arda$Context) {
   function WorksContext() {
@@ -35611,4 +35611,4 @@ WorksContext.component = WorksContextComponent;
 module.exports = WorksContext;
 
 
-},{"../components/works_context":194,"arda":5,"axios":8,"lodash":25,"page":26}]},{},[185])
+},{"../components/works_context_component":194,"arda":5,"axios":8,"lodash":25,"page":26}]},{},[185])
