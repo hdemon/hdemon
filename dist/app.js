@@ -35019,7 +35019,7 @@ var ArticleContextComponent = (function (_Arda$Component) {
       value: function render() {
         var article = this.context.shared.state.article;
         var articleContent = {};
-        console.log(article);
+
         if (article) {
           articleContent = React.createElement(ArticleContent, { article: article });
         } else {

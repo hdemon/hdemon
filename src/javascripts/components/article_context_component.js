@@ -6,7 +6,7 @@ class ArticleContextComponent extends Arda.Component {
   render() {
     var article = this.context.shared.state.article;
     var articleContent = {}
-console.log(article);
+
     if (article) {
       articleContent = <ArticleContent article={article}/>
     } else {
