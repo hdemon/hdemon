@@ -10,7 +10,6 @@ gulp.task('build', function() {
     read: false
   }).pipe(browserify({
     transform: ['babelify', 'reactify'],
-    debug: true
   }))
   .pipe(gulp.dest('./dist'));
 });
