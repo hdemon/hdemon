@@ -34927,7 +34927,9 @@ var WorksContext = require("./contexts/works"),
 window.addEventListener("DOMContentLoaded", function () {
     var router = new Arda.Router(Arda.DefaultLayout, document.querySelector("#app"));
 
-    page.start({ hashbang: true });
+    page("/", function () {
+        router.pushContext(ArticlesContext, {});
+    });
     page("/articles", function () {
         router.pushContext(ArticlesContext, {});
     });
@@ -34937,7 +34939,7 @@ window.addEventListener("DOMContentLoaded", function () {
     page("/works", function () {
         router.pushContext(WorksContext, {});
     });
-    page("/articles");
+    page.start({ hashbang: true });
 });
 
 

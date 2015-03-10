@@ -9,9 +9,9 @@ var WorksContext = require('./contexts/works'),
 window.addEventListener('DOMContentLoaded', () => {
   var router = new Arda.Router(Arda.DefaultLayout, document.querySelector('#app'))
 
-  page.start({ hashbang: true })
+  page('/', () => { router.pushContext(ArticlesContext, {}) })
   page('/articles', () => { router.pushContext(ArticlesContext, {}) })
   page('/articles/:name', (context) => { router.pushContext(ArticleContext, context) })
   page('/works', () => { router.pushContext(WorksContext, {}) })
-  page('/articles')
+  page.start({ hashbang: true })
 });
