@@ -2,7 +2,7 @@ var Arda = require('arda');
 var Navigation = require('./navigation'),
     Repositories = require('./repositories');
 
-class WorksContext extends Arda.Component {
+class WorksContextComponent extends Arda.Component {
   render() {
     var repositories = this.context.shared.state.repositories;
     var content = {}
@@ -22,4 +22,4 @@ class WorksContext extends Arda.Component {
   }
 }
 
-module.exports = WorksContext
+module.exports = WorksContextComponent

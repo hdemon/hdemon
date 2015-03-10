@@ -12,8 +12,8 @@ class Navigation extends Arda.Component {
   render() {
     return (
       <nav>
-        <div onClick={this.onClickWorksButton.bind(this)}>works</div>
-        <div onClick={this.onClickArticlesButton.bind(this)}>articles</div>
+        <div className="works button" onClick={this.onClickWorksButton.bind(this)}>works</div>
+        <div className="articles button" onClick={this.onClickArticlesButton.bind(this)}>articles</div>
       </nav>
     );
   }
