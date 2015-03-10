@@ -5,18 +5,18 @@ var Navigation = require('./navigation'),
 class ArticleContextComponent extends Arda.Component {
   render() {
     var article = this.context.shared.state.article;
-    var articleContent = {}
+    var content = {}
 
     if (article) {
-      articleContent = <ArticleContent article={article}/>
+      content = <ArticleContent article={article}/>
     } else {
-      articleContent = <div></div>
+      content = <div></div>
     }
 
     return (
       <div>
         <Navigation />
-        {articleContent}
+        {content}
       </div>
     )
   }

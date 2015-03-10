@@ -35018,19 +35018,19 @@ var ArticleContextComponent = (function (_Arda$Component) {
     render: {
       value: function render() {
         var article = this.context.shared.state.article;
-        var articleContent = {};
+        var content = {};
 
         if (article) {
-          articleContent = React.createElement(ArticleContent, { article: article });
+          content = React.createElement(ArticleContent, { article: article });
         } else {
-          articleContent = React.createElement("div", null);
+          content = React.createElement("div", null);
         }
 
         return React.createElement(
           "div",
           null,
           React.createElement(Navigation, null),
-          articleContent
+          content
         );
       },
       writable: true,
@@ -35177,19 +35177,19 @@ var ArticlesContextComponent = (function (_Arda$Component) {
     render: {
       value: function render() {
         var articles = this.context.shared.state.articles;
-        var articlesComponent = {};
+        var content = {};
 
         if (articles) {
-          articlesComponent = React.createElement(Articles, { articles: articles });
+          content = React.createElement(Articles, { articles: articles });
         } else {
-          articlesComponent = React.createElement("div", null);
+          content = React.createElement("div", null);
         }
 
         return React.createElement(
           "div",
           null,
           React.createElement(Navigation, null),
-          articlesComponent
+          content
         );
       },
       writable: true,
@@ -35392,19 +35392,19 @@ var WorksContext = (function (_Arda$Component) {
     render: {
       value: function render() {
         var repositories = this.context.shared.state.repositories;
-        var reposComponent = {};
+        var content = {};
 
         if (repositories) {
-          reposComponent = React.createElement(Repositories, { repositories: repositories });
+          content = React.createElement(Repositories, { repositories: repositories });
         } else {
-          reposComponent = React.createElement("div", null);
+          content = React.createElement("div", null);
         }
 
         return React.createElement(
           "div",
           null,
           React.createElement(Navigation, null),
-          reposComponent
+          content
         );
       },
       writable: true,

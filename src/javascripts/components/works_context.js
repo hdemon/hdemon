@@ -5,18 +5,18 @@ var Navigation = require('./navigation'),
 class WorksContext extends Arda.Component {
   render() {
     var repositories = this.context.shared.state.repositories;
-    var reposComponent = {}
+    var content = {}
 
     if (repositories) {
-      reposComponent = <Repositories repositories={repositories}/>
+      content = <Repositories repositories={repositories}/>
     } else {
-      reposComponent = <div></div>
+      content = <div></div>
     }
 
     return (
       <div>
         <Navigation />
-        {reposComponent}
+        {content}
       </div>
     )
   }
