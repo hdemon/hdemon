@@ -21,8 +21,6 @@ var MyArticle = (function () {
       value: function fetchIndex() {
         var _this = this;
 
-        console.log(this.indexCache.hasExpired());
-        console.log(this.indexCache.previousPeriod);
         if (this.indexCache.hasExpired()) {
           var path = "/repos/" + process.env.GITHUB_USER_NAME + "/hdemon-articles/contents/articles";
           return axios.get(this.origin + path).then(function (response) {
@@ -30,7 +28,6 @@ var MyArticle = (function () {
             return response.data;
           });
         } else {
-          console.log("cache");
           return Promise.resolve(this.indexCache.get());
         }
       },
@@ -39,10 +36,17 @@ var MyArticle = (function () {
     },
     fetch: {
       value: function fetch(name) {
-        var path = "/repos/" + process.env.GITHUB_USER_NAME + "/hdemon-articles/contents/articles/" + encodeURIComponent(name);
-        return axios.get(this.origin + path).then(function (response) {
-          return response.data;
-        });
+        var _this = this;
+
+        if (this.indexCache.hasExpired()) {
+          var path = "/repos/" + process.env.GITHUB_USER_NAME + "/hdemon-articles/contents/articles/" + encodeURIComponent(name);
+          return axios.get(this.origin + path).then(function (response) {
+            _this.indexCache.set(response.data);
+            return response.data;
+          });
+        } else {
+          return Promise.resolve(this.indexCache.get());
+        }
       },
       writable: true,
       configurable: true

@@ -22,11 +22,16 @@ class MyArticle {
   }
 
   fetch(name) {
-    var path = `/repos/${process.env['GITHUB_USER_NAME']}/hdemon-articles/contents/articles/${encodeURIComponent(name)}`
-    return axios.get(this.origin + path)
-      .then((response) => {
-        return response.data
-      })
+    if (this.indexCache.hasExpired()) {
+      var path = `/repos/${process.env['GITHUB_USER_NAME']}/hdemon-articles/contents/articles/${encodeURIComponent(name)}`
+      return axios.get(this.origin + path)
+        .then((response) => {
+          this.indexCache.set(response.data)
+          return response.data
+        })
+    } else {
+      return Promise.resolve(this.indexCache.get())
+    }
   }
 }
 
