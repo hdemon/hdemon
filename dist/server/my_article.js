@@ -16,7 +16,17 @@ var MyArticle = (function () {
   _prototypeProperties(MyArticle, null, {
     fetchIndex: {
       value: function fetchIndex() {
-        var path = "/repos/" + process.env.USER_NAME + "/hdemon-articles/contents/articles";
+        var path = "/repos/" + process.env.GITHUB_USER_NAME + "/hdemon-articles/contents/articles";
+        return axios.get(this.origin + path).then(function (response) {
+          return response.data;
+        });
+      },
+      writable: true,
+      configurable: true
+    },
+    fetch: {
+      value: function fetch(name) {
+        var path = "/repos/" + process.env.GITHUB_USER_NAME + "/hdemon-articles/contents/articles/" + encodeURIComponent(name);
         return axios.get(this.origin + path).then(function (response) {
           return response.data;
         });

@@ -17,6 +17,12 @@ app.get('/articles', function(request, response) {
   });
 });
 
+app.get('/articles/:name', function(request, response) {
+  myArticle.fetch(request.params.name).then((data) => {
+    response.send(data);
+  });
+});
+
 app.listen(app.get('port'), function() {
   console.log("Node app is running at localhost:" + app.get('port'))
 });

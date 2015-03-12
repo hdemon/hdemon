@@ -6,7 +6,15 @@ class MyArticle {
   }
 
   fetchIndex() {
-    var path = `/repos/${process.env['USER_NAME']}/hdemon-articles/contents/articles`
+    var path = `/repos/${process.env['GITHUB_USER_NAME']}/hdemon-articles/contents/articles`
+    return axios.get(this.origin + path)
+      .then((response) => {
+        return response.data
+      })
+  }
+
+  fetch(name) {
+    var path = `/repos/${process.env['GITHUB_USER_NAME']}/hdemon-articles/contents/articles/${encodeURIComponent(name)}`
     return axios.get(this.origin + path)
       .then((response) => {
         return response.data
