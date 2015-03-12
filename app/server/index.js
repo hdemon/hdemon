@@ -11,13 +11,13 @@ app.get('/', function(request, response) {
   response.send('Hello World!')
 });
 
-app.get('/articles', function(request, response) {
+app.get('/api/articles', function(request, response) {
   myArticle.fetchIndex().then((data) => {
     response.send(data);
   });
 });
 
-app.get('/articles/:name', function(request, response) {
+app.get('/api/articles/:name', function(request, response) {
   myArticle.fetch(request.params.name).then((data) => {
     response.send(data);
   });
