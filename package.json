@@ -18,8 +18,7 @@
     "bluebird": "^2.9.14",
     "express": "^4.12.2",
     "lodash": "^3.3.1",
-    "page": "^1.6.1",
-    "ypromise": "^0.3.0"
+    "page": "^1.6.1"
   },
   "devDependencies": {
     "babelify": "~5.0.3",
