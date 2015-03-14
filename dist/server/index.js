@@ -2,12 +2,10 @@
 
 var fs = require("fs");
 var express = require("express");
-var corser = require("corser");
 var MyArticle = require("./my_article");
 var app = express();
 
 app.set("port", process.env.PORT || 5000);
-app.use(corser.create());
 app.use("/public", express["static"](__dirname + "/../front"));
 
 var myArticle = new MyArticle();
