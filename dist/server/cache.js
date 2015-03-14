@@ -12,7 +12,7 @@ var Cache = (function () {
 
     this.cache = {};
     this.previousPeriod = null;
-    this.durationSecond = 600;
+    this.durationSecond = process.env.CACHE_DURATION_SECOND || 600;
   }
 
   _prototypeProperties(Cache, null, {
