@@ -13,5 +13,5 @@ window.addEventListener('DOMContentLoaded', () => {
   page('/articles', () => { router.pushContext(ArticlesContext, {}) })
   page('/articles/:name', (context) => { router.pushContext(ArticleContext, context) })
   page('/works', () => { router.pushContext(WorksContext, {}) })
-  page.start({ hashbang: true })
+  page.start()
 });

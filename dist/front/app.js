@@ -24,7 +24,7 @@ window.addEventListener("DOMContentLoaded", function () {
     page("/works", function () {
         router.pushContext(WorksContext, {});
     });
-    page.start({ hashbang: true });
+    page.start();
 });
 
 

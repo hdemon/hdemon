@@ -1,17 +1,28 @@
 "use strict";
 
+var fs = require("fs");
 var express = require("express");
+var corser = require("corser");
 var MyArticle = require("./my_article");
 var app = express();
 
 app.set("port", process.env.PORT || 5000);
-app.use(express["static"](__dirname + "/public"));
+app.use(corser.create());
+app.use("/public", express["static"](__dirname + "/../front"));
 
 var myArticle = new MyArticle();
 
-app.get("/", function (request, response) {
-  response.send("Hello World!");
-});
+var respondApp = function (request, response) {
+  fs.readFile(__dirname + "/../front/index.html", function (err, data) {
+    response.type("html");
+    response.send(data);
+  });
+};
+
+app.get("/", respondApp);
+app.get("/articles", respondApp);
+app.get("/articles/:name", respondApp);
+app.get("/works", respondApp);
 
 app.get("/api/articles", function (request, response) {
   myArticle.fetchIndex().then(function (data) {
