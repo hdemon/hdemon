@@ -539,7 +539,7 @@ var ArticleContext = (function (_Arda$Context) {
         _get(Object.getPrototypeOf(ArticleContext.prototype), "delegate", this).call(this);
         subscribe("context:created", function () {
           var name = encodeURIComponent(_this.props.params.name);
-          axios.get("https://hdemon-backend.herokuapp.com/api/articles/" + name).then(function (response) {
+          axios.get("/api/articles/" + name).then(function (response) {
             var article = response.data.data;
             _this.update(function (s) {
               return { article: article };
@@ -602,7 +602,7 @@ var ArticlesContext = (function (_Arda$Context) {
 
         _get(Object.getPrototypeOf(ArticlesContext.prototype), "delegate", this).call(this);
         subscribe("context:created", function () {
-          axios.get("https://hdemon-backend.herokuapp.com/api/articles").then(function (response) {
+          axios.get("/api/articles").then(function (response) {
             var articles = response.data.data;
             _this.update(function (s) {
               return { articles: articles };

@@ -9,7 +9,7 @@ class ArticleContext extends Arda.Context {
     super.delegate()
     subscribe('context:created', () => {
       var name = encodeURIComponent(this.props.params.name);
-      axios.get('https://hdemon-backend.herokuapp.com/api/articles/' + name).then((response) => {
+      axios.get('/api/articles/' + name).then((response) => {
         var article = response.data.data;
         this.update((s) => { return {article: article} })
       })
