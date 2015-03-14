@@ -540,7 +540,7 @@ var ArticleContext = (function (_Arda$Context) {
         subscribe("context:created", function () {
           var name = encodeURIComponent(_this.props.params.name);
           axios.get("/api/articles/" + name).then(function (response) {
-            var article = response.data.data;
+            var article = response.data.data.article;
             _this.update(function (s) {
               return { article: article };
             });
@@ -603,7 +603,7 @@ var ArticlesContext = (function (_Arda$Context) {
         _get(Object.getPrototypeOf(ArticlesContext.prototype), "delegate", this).call(this);
         subscribe("context:created", function () {
           axios.get("/api/articles").then(function (response) {
-            var articles = response.data.data;
+            var articles = response.data.data.articles;
             _this.update(function (s) {
               return { articles: articles };
             });

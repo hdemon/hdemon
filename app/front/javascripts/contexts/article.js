@@ -10,7 +10,7 @@ class ArticleContext extends Arda.Context {
     subscribe('context:created', () => {
       var name = encodeURIComponent(this.props.params.name);
       axios.get('/api/articles/' + name).then((response) => {
-        var article = response.data.data;
+        var article = response.data.data.article;
         this.update((s) => { return {article: article} })
       })
     })

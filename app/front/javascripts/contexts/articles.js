@@ -9,7 +9,7 @@ class ArticlesContext extends Arda.Context {
     super.delegate()
     subscribe('context:created', () => {
       axios.get('/api/articles').then((response) => {
-        var articles = response.data.data;
+        var articles = response.data.data.articles;
         this.update((s) => { return {articles: articles} })
       })
     })
