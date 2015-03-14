@@ -665,8 +665,9 @@ var WorksContext = (function (_Arda$Context) {
 
         _get(Object.getPrototypeOf(WorksContext.prototype), "delegate", this).call(this);
         subscribe("context:created", function () {
-          axios.get("https://hdemon-backend.herokuapp.com/api/repositories").then(function (response) {
-            var repositories = response.data.data;
+          axios.get("/api/works").then(function (response) {
+            console.log(response.data.data);
+            var repositories = response.data.data.repositories;
             repositories = _.sortBy(repositories, function (repository) {
               return repository.stargazers_count;
             }).reverse();

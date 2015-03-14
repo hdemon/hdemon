@@ -3,12 +3,14 @@
 var fs = require("fs");
 var express = require("express");
 var MyArticle = require("./my_article");
+var Works = require("./works");
 var app = express();
 
 app.set("port", process.env.PORT || 5000);
 app.use("/public", express["static"](__dirname + "/../front"));
 
 var myArticle = new MyArticle();
+var works = new Works();
 
 var respondApp = function (request, response) {
   fs.readFile(__dirname + "/../front/index.html", function (err, data) {
@@ -30,6 +32,12 @@ app.get("/api/articles", function (request, response) {
 
 app.get("/api/articles/:name", function (request, response) {
   myArticle.fetch(request.params.name).then(function (data) {
+    response.send(data);
+  });
+});
+
+app.get("/api/works", function (request, response) {
+  works.fetchIndex().then(function (data) {
     response.send(data);
   });
 });
