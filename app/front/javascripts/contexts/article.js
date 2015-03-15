@@ -1,7 +1,8 @@
 var _ = require('lodash'),
     Arda = require('arda'),
     page = require('page'),
-    axios = require('axios');
+    axios = require('axios'),
+    marked = require('marked');
 var ArticleContextComponent = require('../components/article_context_component');
 
 class ArticleContext extends Arda.Context {
@@ -12,7 +13,8 @@ class ArticleContext extends Arda.Context {
       axios.get('/api/articles/' + name).then((response) => {
         var article = response.data.data.article;
         this.changeTitle(article.title)
-        this.update((s) => { return {article: article} })
+        var compiledArticle = this.compile(article)
+        this.update((s) => { return {article: compiledArticle} })
       })
     })
 
@@ -22,6 +24,17 @@ class ArticleContext extends Arda.Context {
     subscribe('navigation:clickArticlesButton', () => {
       page('/articles')
     })
+  }
+
+  compile(article) {
+    var _article = article
+
+    marked.setOptions({
+      gfm: true,
+    });
+
+    _article.content = marked(article.content)
+    return _article
   }
 
   changeTitle(title) {

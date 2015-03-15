@@ -6,7 +6,7 @@ class ArticleContent extends Arda.Component {
   render() {
     return (
       <div className="article-content">
-        <span>{this.props.article.content}</span>
+        <span dangerouslySetInnerHTML={{__html: this.props.article.content}}></span>
         <TwitterShareButton />
       </div>
     );
