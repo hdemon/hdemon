@@ -609,6 +609,7 @@ var ArticleContext = (function (_Arda$Context) {
           var name = encodeURIComponent(_this.props.params.name);
           axios.get("/api/articles/" + name).then(function (response) {
             var article = response.data.data.article;
+            _this.changeTitle(article.title);
             _this.update(function (s) {
               return { article: article };
             });
@@ -621,6 +622,14 @@ var ArticleContext = (function (_Arda$Context) {
         subscribe("navigation:clickArticlesButton", function () {
           page("/articles");
         });
+      },
+      writable: true,
+      configurable: true
+    },
+    changeTitle: {
+      value: function changeTitle(title) {
+        var titleNode = document.querySelector("title");
+        titleNode.innerText = title + " - hdemon";
       },
       writable: true,
       configurable: true

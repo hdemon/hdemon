@@ -86,9 +86,13 @@ var MyArticle = (function () {
     },
     formArticleData: {
       value: function formArticleData(data) {
-        var _data = data;
-        console.log(data);
-        _data.content = new Buffer(_data.content, "base64").toString();
+        var _data = {
+          name: data.name,
+          title: data.name.match(/.*(?=_.*)/)[0],
+          publish_date: data.name.match(/[0-9\-]{10}(?=\.md)/)[0],
+          content: new Buffer(data.content, "base64").toString()
+        };
+
         return { article: _data };
       },
       writable: true,
