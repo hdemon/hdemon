@@ -1,6 +1,7 @@
 var Arda = require('arda');
 var Header = require('./header'),
-    Repositories = require('./repositories');
+    Repositories = require('./repositories'),
+    Slides = require('./slides');
 
 class WorksContextComponent extends Arda.Component {
   render() {
@@ -8,7 +9,12 @@ class WorksContextComponent extends Arda.Component {
     var content = {}
 
     if (repositories) {
-      content = <Repositories repositories={repositories}/>
+      content = (
+        <div>
+          <Repositories repositories={repositories}/>
+          <Slides />
+        </div>
+      )
     } else {
       content = <div></div>
     }

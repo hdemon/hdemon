@@ -39,6 +39,9 @@ nav {
   justify-content: space-between;
   width: 76px; }
 
+.slide {
+  width: 256px; }
+
 .repositories-container, .articles-container, .article-container {
   margin-top: 12px; }
 
@@ -78,3 +81,6 @@ nav {
     transition: background-color;
     transition-duration: 0.3s;
     background-color: white; }
+
+.slides-container {
+  margin-top: 24px; }

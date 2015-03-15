@@ -9,7 +9,6 @@ class WorksContext extends Arda.Context {
     super.delegate()
     subscribe('context:created', () => {
       axios.get('/api/works').then((response) => {
-        console.log(response.data.data);
         var repositories = response.data.data.repositories;
         repositories = _.sortBy(repositories, (repository) => { return repository.stargazers_count; }).reverse();
         this.update((s) => { return {repositories: repositories} })
