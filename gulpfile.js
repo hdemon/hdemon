@@ -1,3 +1,4 @@
+var exec = require('child_process').exec;
 var gulp = require('gulp'),
     browserify = require('gulp-browserify'),
     watch = require('gulp-watch'),
@@ -13,6 +14,13 @@ gulp.task('build_front', function() {
     transform: ['babelify', 'reactify'],
   }))
   .pipe(gulp.dest('./dist/front'));
+});
+
+gulp.task('build_stylesheet', function() {
+  exec('sassc ./app/front/stylesheets/stylesheet.sass ./dist/front/stylesheet.css', function (err, stdout, stderr) {
+    console.log(stdout);
+    console.log(stderr);
+  });
 });
 
 gulp.task('build_server', function() {
