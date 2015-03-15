@@ -454,7 +454,7 @@ var RepositoryItem = (function (_Arda$Component) {
       value: function render() {
         return React.createElement(
           "a",
-          { className: "repository-item", href: this.props.url },
+          { className: "repository-item", href: this.props.url, target: "_blank" },
           React.createElement(
             "p",
             { className: "name" },
@@ -520,7 +520,7 @@ var Slides = (function (_Arda$Component) {
         script.setAttribute("data-ratio", "1.33333333333333");
         script.classList.add("speakerdeck-embed");
         var slide1Node = document.getElementById("slide-1");
-        var slide1 = "<script async class=\"speakerdeck-embed\" data-id=\"72a01620d1010131678c468f47768a35\" data-ratio=\"1.33333333333333\" src=\"//speakerdeck.com/assets/embed.js\"></script>";
+
         slide1Node.appendChild(script);
       },
       writable: true,
