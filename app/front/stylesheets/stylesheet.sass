@@ -1,12 +1,35 @@
+$light-gray: #eee
+$dark-gray: #444
+@font-face {font-family: 'MuseoSlab-500';src: url('public/webfonts/2DA4C8_0_0.eot');src: url('public/webfonts/2DA4C8_0_0.eot?#iefix') format('embedded-opentype'),url('public/webfonts/2DA4C8_0_0.woff2') format('woff2'),url('public/webfonts/2DA4C8_0_0.woff') format('woff'),url('public/webfonts/2DA4C8_0_0.ttf') format('truetype');}
+
+body
+  background-color: $light-gray
+  color: $dark-gray
+
 h1
   font-family: serif
   font-weight: normal
   margin-top: 2px
 
+#app
+  max-width: 800px
+  margin: 40px auto
+
+.header
+  padding-left: 10px
+  padding-bottom: 7px
+
+  .title
+    font-family: "MuseoSlab-500"
+    font-size: 32px
+
 nav
   display: flex
   justify-content: space-between
   width: 128px
+
+  .navigation-button
+    cursor: pointer
 
 %primary-content-container
   margin-top: 12px
@@ -19,3 +42,45 @@ nav
 
 .article-container
   @extend %primary-content-container
+  background-color: #fefeff
+  padding: 30px
+
+  p
+    text-indent: 1em
+    line-height: 1.8em
+
+.repository-item
+  display: block
+  padding: 10px
+  text-decoration: none
+  color: $dark-gray
+  cursor: pointer
+
+  .name
+    font-size: 24px
+
+  p
+    margin: 0
+
+  &:hover
+    transition: background-color
+    transition-duration: 0.3s
+    background-color: white
+
+.article-item
+  display: block
+  padding: 10px
+  text-decoration: none
+  color: $dark-gray
+  cursor: pointer
+
+  .title
+    font-size: 24px
+
+  p
+    margin: 0
+
+  &:hover
+    transition: background-color
+    transition-duration: 0.3s
+    background-color: white

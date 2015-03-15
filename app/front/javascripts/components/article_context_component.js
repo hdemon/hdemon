@@ -1,5 +1,5 @@
 var Arda = require('arda');
-var Navigation = require('./navigation'),
+var Header = require('./header'),
     ArticleContent = require('./article_content');
 
 class ArticleContextComponent extends Arda.Component {
@@ -15,7 +15,7 @@ class ArticleContextComponent extends Arda.Component {
 
     return (
       <div>
-        <Navigation />
+        <Header />
         {content}
       </div>
     )

@@ -1,12 +1,71 @@
+@font-face {
+  font-family: 'MuseoSlab-500';
+  src: url("public/webfonts/2DA4C8_0_0.eot");
+  src: url("public/webfonts/2DA4C8_0_0.eot?#iefix") format("embedded-opentype"), url("public/webfonts/2DA4C8_0_0.woff2") format("woff2"), url("public/webfonts/2DA4C8_0_0.woff") format("woff"), url("public/webfonts/2DA4C8_0_0.ttf") format("truetype"); }
+
+body {
+  background-color: #eee;
+  color: #444; }
+
 h1 {
   font-family: serif;
   font-weight: normal;
   margin-top: 2px; }
 
+#app {
+  max-width: 800px;
+  margin: 40px auto; }
+
+.header {
+  padding-left: 10px;
+  padding-bottom: 7px; }
+  .header .title {
+    font-family: "MuseoSlab-500";
+    font-size: 32px; }
+
 nav {
   display: flex;
   justify-content: space-between;
   width: 128px; }
+  nav .navigation-button {
+    cursor: pointer; }
 
 .repositories-container, .articles-container, .article-container {
   margin-top: 12px; }
+
+.article-container {
+  background-color: #fefeff;
+  padding: 30px; }
+  .article-container p {
+    text-indent: 1em;
+    line-height: 1.8em; }
+
+.repository-item {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #444;
+  cursor: pointer; }
+  .repository-item .name {
+    font-size: 24px; }
+  .repository-item p {
+    margin: 0; }
+  .repository-item:hover {
+    transition: background-color;
+    transition-duration: 0.3s;
+    background-color: white; }
+
+.article-item {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #444;
+  cursor: pointer; }
+  .article-item .title {
+    font-size: 24px; }
+  .article-item p {
+    margin: 0; }
+  .article-item:hover {
+    transition: background-color;
+    transition-duration: 0.3s;
+    background-color: white; }

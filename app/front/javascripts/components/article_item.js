@@ -13,9 +13,9 @@ class ArticleItem extends Arda.Component {
 
   render() {
     return (
-      <div className="article-item">
-        <span onClick={this.showArticle.bind(this)}>{this.props.title}</span>
-        <span>{this.props.publishDate}</span>
+      <div className="article-item" onClick={this.showArticle.bind(this)}>
+        <p className="title">{this.props.title}</p>
+        <p>{this.props.publishDate}</p>
       </div>
     );
   }

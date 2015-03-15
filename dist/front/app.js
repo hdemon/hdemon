@@ -83,7 +83,7 @@ var _inherits = function (subClass, superClass) { if (typeof superClass !== "fun
 var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } };
 
 var Arda = require("arda");
-var Navigation = require("./navigation"),
+var Header = require("./header"),
     ArticleContent = require("./article_content");
 
 var ArticleContextComponent = (function (_Arda$Component) {
@@ -112,7 +112,7 @@ var ArticleContextComponent = (function (_Arda$Component) {
         return React.createElement(
           "div",
           null,
-          React.createElement(Navigation, null),
+          React.createElement(Header, null),
           content
         );
       },
@@ -127,7 +127,7 @@ var ArticleContextComponent = (function (_Arda$Component) {
 module.exports = ArticleContextComponent;
 
 
-},{"./article_content":2,"./navigation":7,"arda":19}],4:[function(require,module,exports){
+},{"./article_content":2,"./header":7,"arda":19}],4:[function(require,module,exports){
 "use strict";
 
 var _prototypeProperties = function (child, staticProps, instanceProps) { if (staticProps) Object.defineProperties(child, staticProps); if (instanceProps) Object.defineProperties(child.prototype, instanceProps); };
@@ -163,14 +163,14 @@ var ArticleItem = (function (_Arda$Component) {
       value: function render() {
         return React.createElement(
           "div",
-          { className: "article-item" },
+          { className: "article-item", onClick: this.showArticle.bind(this) },
           React.createElement(
-            "span",
-            { onClick: this.showArticle.bind(this) },
+            "p",
+            { className: "title" },
             this.props.title
           ),
           React.createElement(
-            "span",
+            "p",
             null,
             this.props.publishDate
           )
@@ -242,7 +242,7 @@ var _inherits = function (subClass, superClass) { if (typeof superClass !== "fun
 var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } };
 
 var Arda = require("arda");
-var Navigation = require("./navigation"),
+var Header = require("./header"),
     Articles = require("./articles");
 
 var ArticlesContextComponent = (function (_Arda$Component) {
@@ -271,7 +271,7 @@ var ArticlesContextComponent = (function (_Arda$Component) {
         return React.createElement(
           "div",
           null,
-          React.createElement(Navigation, null),
+          React.createElement(Header, null),
           content
         );
       },
@@ -286,7 +286,7 @@ var ArticlesContextComponent = (function (_Arda$Component) {
 module.exports = ArticlesContextComponent;
 
 
-},{"./articles":5,"./navigation":7,"arda":19}],7:[function(require,module,exports){
+},{"./articles":5,"./header":7,"arda":19}],7:[function(require,module,exports){
 "use strict";
 
 var _prototypeProperties = function (child, staticProps, instanceProps) { if (staticProps) Object.defineProperties(child, staticProps); if (instanceProps) Object.defineProperties(child.prototype, instanceProps); };
@@ -297,18 +297,18 @@ var _classCallCheck = function (instance, Constructor) { if (!(instance instance
 
 var Arda = require("arda");
 
-var Navigation = (function (_Arda$Component) {
-  function Navigation() {
-    _classCallCheck(this, Navigation);
+var Header = (function (_Arda$Component) {
+  function Header() {
+    _classCallCheck(this, Header);
 
     if (_Arda$Component != null) {
       _Arda$Component.apply(this, arguments);
     }
   }
 
-  _inherits(Navigation, _Arda$Component);
+  _inherits(Header, _Arda$Component);
 
-  _prototypeProperties(Navigation, null, {
+  _prototypeProperties(Header, null, {
     onClickWorksButton: {
       value: function onClickWorksButton() {
         this.dispatch("navigation:clickWorksButton");
@@ -326,17 +326,26 @@ var Navigation = (function (_Arda$Component) {
     render: {
       value: function render() {
         return React.createElement(
-          "nav",
-          null,
+          "div",
+          { className: "header" },
           React.createElement(
             "div",
-            { className: "works button", onClick: this.onClickWorksButton.bind(this) },
-            "works"
+            { className: "title" },
+            "hdemon"
           ),
           React.createElement(
-            "div",
-            { className: "articles button", onClick: this.onClickArticlesButton.bind(this) },
-            "articles"
+            "nav",
+            null,
+            React.createElement(
+              "div",
+              { className: "works navigation-button", onClick: this.onClickWorksButton.bind(this) },
+              "works"
+            ),
+            React.createElement(
+              "div",
+              { className: "articles navigation-button", onClick: this.onClickArticlesButton.bind(this) },
+              "articles"
+            )
           )
         );
       },
@@ -345,10 +354,10 @@ var Navigation = (function (_Arda$Component) {
     }
   });
 
-  return Navigation;
+  return Header;
 })(Arda.Component);
 
-module.exports = Navigation;
+module.exports = Header;
 
 
 },{"arda":19}],8:[function(require,module,exports){
@@ -422,15 +431,15 @@ var RepositoryItem = (function (_Arda$Component) {
     render: {
       value: function render() {
         return React.createElement(
-          "div",
-          { className: "repository-item" },
+          "a",
+          { className: "repository-item", href: this.props.url },
           React.createElement(
-            "a",
-            { href: this.props.url },
+            "p",
+            { className: "name" },
             this.props.name
           ),
           React.createElement(
-            "span",
+            "p",
             null,
             this.props.description
           )
@@ -523,7 +532,7 @@ var _inherits = function (subClass, superClass) { if (typeof superClass !== "fun
 var _classCallCheck = function (instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } };
 
 var Arda = require("arda");
-var Navigation = require("./navigation"),
+var Header = require("./header"),
     Repositories = require("./repositories");
 
 var WorksContextComponent = (function (_Arda$Component) {
@@ -552,7 +561,7 @@ var WorksContextComponent = (function (_Arda$Component) {
         return React.createElement(
           "div",
           null,
-          React.createElement(Navigation, null),
+          React.createElement(Header, null),
           content
         );
       },
@@ -567,7 +576,7 @@ var WorksContextComponent = (function (_Arda$Component) {
 module.exports = WorksContextComponent;
 
 
-},{"./navigation":7,"./repositories":8,"arda":19}],12:[function(require,module,exports){
+},{"./header":7,"./repositories":8,"arda":19}],12:[function(require,module,exports){
 "use strict";
 
 var _prototypeProperties = function (child, staticProps, instanceProps) { if (staticProps) Object.defineProperties(child, staticProps); if (instanceProps) Object.defineProperties(child.prototype, instanceProps); };
