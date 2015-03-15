@@ -55,7 +55,7 @@ class Works {
 
     return new Promise((resolve, reject) => {
       if (this.rawCache[page].hasExpired()) {
-        var path = `/users/${process.env['GITHUB_USER_NAME']}/repos?type=owner&page=${page}&access_token=6092b77ed35c84f31777ee9a7e3a7a7d019d6d43`
+        var path = `/users/${process.env['GITHUB_USER_NAME']}/repos?type=owner&page=${page}`
         return axios.get(this.origin + path)
           .then((response) => {
             this.rawCache[page].set(response)
