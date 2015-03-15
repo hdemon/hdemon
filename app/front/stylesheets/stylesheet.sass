@@ -1,2 +1,21 @@
 h1
   font-family: serif
+  font-weight: normal
+  margin-top: 2px
+
+nav
+  display: flex
+  justify-content: space-between
+  width: 128px
+
+%primary-content-container
+  margin-top: 12px
+
+.repositories-container
+  @extend %primary-content-container
+
+.articles-container
+  @extend %primary-content-container
+
+.article-container
+  @extend %primary-content-container

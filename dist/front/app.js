@@ -57,7 +57,7 @@ var ArticleContent = (function (_Arda$Component) {
       value: function render() {
         return React.createElement(
           "div",
-          { className: "article-content" },
+          { className: "article-container" },
           React.createElement("span", { dangerouslySetInnerHTML: { __html: this.props.article.content } }),
           React.createElement(TwitterShareButton, null)
         );
@@ -215,7 +215,7 @@ var Articles = (function (_Arda$Component) {
       value: function render() {
         return React.createElement(
           "div",
-          null,
+          { className: "articles-container" },
           this.props.articles.map(function (article) {
             return React.createElement(ArticleItem, { name: article.name, title: article.title, publishDate: article.publish_date });
           })
@@ -379,7 +379,7 @@ var Repositories = (function (_Arda$Component) {
       value: function render() {
         return React.createElement(
           "div",
-          null,
+          { className: "repositories-container" },
           this.props.repositories.map(function (repository) {
             return React.createElement(RepositoryItem, { url: repository.html_url, name: repository.name, description: repository.description });
           })
