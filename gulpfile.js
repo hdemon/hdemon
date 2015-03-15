@@ -29,6 +29,13 @@ gulp.task('build_server', function() {
     .pipe(gulp.dest('./dist/server'));
 });
 
+gulp.task('build_html', function() {
+  gulp.src("app/front/index.html")
+    .pipe(gulp.dest("./dist/front") )
+});
+
+gulp.task('build', ['build_server', 'build_front', 'build_stylesheet', 'build_html'], function(){});
+
 gulp.task('watch', function() {
   return gulp.watch('app/front/javascripts/**/*', ['build_front']);
   return gulp.watch('app/**/*', ['build']);
