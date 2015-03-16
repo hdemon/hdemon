@@ -37,7 +37,13 @@ nav {
   top: 0;
   display: flex;
   justify-content: space-between;
-  width: 76px; }
+  width: 100px; }
+  .links .qiita-link {
+    color: #444;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 32px;
+    text-decoration: none; }
 
 .slide {
   width: 256px; }

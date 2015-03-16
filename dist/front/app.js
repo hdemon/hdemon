@@ -424,6 +424,11 @@ var Header = (function (_Arda$Component) {
             { className: "links" },
             React.createElement(
               "a",
+              { className: "qiita-link", href: "http://qiita.com/h_demon" },
+              "qiita"
+            ),
+            React.createElement(
+              "a",
               { className: "github-link", href: "https://github.com/hdemon" },
               React.createElement(
                 "svg",
