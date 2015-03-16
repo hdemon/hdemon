@@ -39,7 +39,8 @@ var _classCallCheck = function (instance, Constructor) { if (!(instance instance
 
 var Arda = require("arda"),
     page = require("page");
-var TwitterShareButton = require("./twitter_share_button");
+var TwitterShareButton = require("./twitter_share_button"),
+    HatebuButton = require("./hatebu_button");
 
 var ArticleContent = (function (_Arda$Component) {
   function ArticleContent() {
@@ -58,8 +59,13 @@ var ArticleContent = (function (_Arda$Component) {
         return React.createElement(
           "div",
           { className: "article-container" },
-          React.createElement("span", { dangerouslySetInnerHTML: { __html: this.props.article.content } }),
-          React.createElement(TwitterShareButton, null)
+          React.createElement("div", { dangerouslySetInnerHTML: { __html: this.props.article.content } }),
+          React.createElement(
+            "div",
+            { className: "share-buttons-container" },
+            React.createElement(TwitterShareButton, null),
+            React.createElement(HatebuButton, null)
+          )
         );
       },
       writable: true,
@@ -73,7 +79,7 @@ var ArticleContent = (function (_Arda$Component) {
 module.exports = ArticleContent;
 
 
-},{"./twitter_share_button":12,"arda":21,"page":43}],3:[function(require,module,exports){
+},{"./hatebu_button":7,"./twitter_share_button":12,"arda":21,"page":43}],3:[function(require,module,exports){
 "use strict";
 
 var _prototypeProperties = function (child, staticProps, instanceProps) { if (staticProps) Object.defineProperties(child, staticProps); if (instanceProps) Object.defineProperties(child.prototype, instanceProps); };
@@ -316,8 +322,8 @@ var HatebuButton = (function (_Arda$Component) {
           { className: "hatebu-button-container" },
           React.createElement(
             "a",
-            { href: "http://b.hatena.ne.jp/entry/hdemon.herokuapp.com", "class": "hatena-bookmark-button", "data-hatena-bookmark-title": "hdemon", "data-hatena-bookmark-layout": "simple-balloon", title: "このエントリーをはてなブックマークに追加" },
-            React.createElement("img", { src: "https://b.st-hatena.com/images/entry-button/button-only@2x.png", alt: "このエントリーをはてなブックマークに追加", width: "20", height: "20", style: "border: none;" })
+            { href: "http://b.hatena.ne.jp/entry/hdemon.herokuapp.com", className: "hatena-bookmark-button", "data-hatena-bookmark-title": "hdemon", "data-hatena-bookmark-layout": "simple-balloon", title: "このエントリーをはてなブックマークに追加" },
+            React.createElement("img", { src: "https://b.st-hatena.com/images/entry-button/button-only@2x.png", alt: "このエントリーをはてなブックマークに追加", width: "20", height: "20" })
           )
         );
       },
@@ -336,6 +342,8 @@ var HatebuButton = (function (_Arda$Component) {
       value: function createScriptNode(id) {
         var script = document.createElement("script");
         script.src = "https://b.st-hatena.com/js/bookmark_button.js";
+        script.setAttribute("type", "text/javascript");
+        script.setAttribute("charset", "utf-8");
         script.setAttribute("async", "async");
         return script;
       },
@@ -347,7 +355,7 @@ var HatebuButton = (function (_Arda$Component) {
   return HatebuButton;
 })(Arda.Component);
 
-module.exports = Slides;
+module.exports = HatebuButton;
 
 
 },{"arda":21}],8:[function(require,module,exports){
@@ -683,7 +691,6 @@ var _classCallCheck = function (instance, Constructor) { if (!(instance instance
 var Arda = require("arda");
 var Header = require("./header"),
     Repositories = require("./repositories"),
-    HatebuButton = require("./hatebu_button"),
     Slides = require("./slides");
 
 var WorksContextComponent = (function (_Arda$Component) {
@@ -708,8 +715,7 @@ var WorksContextComponent = (function (_Arda$Component) {
             "div",
             null,
             React.createElement(Repositories, { repositories: repositories }),
-            React.createElement(Slides, null),
-            React.createElement(HatebuButton, null)
+            React.createElement(Slides, null)
           );
         } else {
           content = React.createElement("div", null);
@@ -733,7 +739,7 @@ var WorksContextComponent = (function (_Arda$Component) {
 module.exports = WorksContextComponent;
 
 
-},{"./hatebu_button":7,"./header":8,"./repositories":9,"./slides":11,"arda":21}],14:[function(require,module,exports){
+},{"./header":8,"./repositories":9,"./slides":11,"arda":21}],14:[function(require,module,exports){
 "use strict";
 
 var _prototypeProperties = function (child, staticProps, instanceProps) { if (staticProps) Object.defineProperties(child, staticProps); if (instanceProps) Object.defineProperties(child.prototype, instanceProps); };

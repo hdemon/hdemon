@@ -1,7 +1,6 @@
 var Arda = require('arda');
 var Header = require('./header'),
     Repositories = require('./repositories'),
-    HatebuButton = require('./hatebu_button'),
     Slides = require('./slides');
 
 class WorksContextComponent extends Arda.Component {
@@ -14,7 +13,6 @@ class WorksContextComponent extends Arda.Component {
         <div>
           <Repositories repositories={repositories}/>
           <Slides />
-          <HatebuButton />
         </div>
       )
     } else {
