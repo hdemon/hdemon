@@ -6,7 +6,7 @@ class Repositories extends Arda.Component {
     return (
       <div className="repositories-container">
         {this.props.repositories.map((repository) => {
-          return <RepositoryItem url={repository.html_url} name={repository.name} description={repository.description} />;
+          return <RepositoryItem url={repository.html_url} name={repository.name} description={repository.description} stargazersCount={repository.stargazers_count}/>;
         })}
       </div>
     )
