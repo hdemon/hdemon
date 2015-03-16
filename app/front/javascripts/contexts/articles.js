@@ -11,6 +11,7 @@ class ArticlesContext extends Arda.Context {
       axios.get('/api/articles').then((response) => {
         var articles = response.data.data.articles;
         this.update((s) => { return {articles: articles} })
+        this.changeTitle()
       })
     })
 
@@ -20,6 +21,11 @@ class ArticlesContext extends Arda.Context {
     subscribe('navigation:clickArticlesButton', () => {
       page('/articles')
     })
+  }
+
+  changeTitle(title) {
+    var titleNode = document.querySelector("title")
+    titleNode.innerText = "hdemon.info"
   }
 }
 ArticlesContext.component = ArticlesContextComponent;

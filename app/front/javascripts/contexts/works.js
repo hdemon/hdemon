@@ -12,6 +12,7 @@ class WorksContext extends Arda.Context {
         var repositories = response.data.data.repositories;
         repositories = _.sortBy(repositories, (repository) => { return repository.stargazers_count; }).reverse();
         this.update((s) => { return {repositories: repositories} })
+        this.changeTitle()
       })
     })
 
@@ -21,6 +22,11 @@ class WorksContext extends Arda.Context {
     subscribe('navigation:clickArticlesButton', () => {
       page('/articles')
     })
+  }
+
+  changeTitle(title) {
+    var titleNode = document.querySelector("title")
+    titleNode.innerText = "hdemon.info"
   }
 }
 WorksContext.component = WorksContextComponent;

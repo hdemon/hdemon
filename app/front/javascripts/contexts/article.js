@@ -12,9 +12,9 @@ class ArticleContext extends Arda.Context {
       var name = encodeURIComponent(this.props.params.name);
       axios.get('/api/articles/' + name).then((response) => {
         var article = response.data.data.article;
-        this.changeTitle(article.title)
         var compiledArticle = this.compile(article)
         this.update((s) => { return {article: compiledArticle} })
+        this.changeTitle(article.title)
       })
     })
 

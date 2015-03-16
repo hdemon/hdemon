@@ -793,11 +793,11 @@ var ArticleContext = (function (_Arda$Context) {
           var name = encodeURIComponent(_this.props.params.name);
           axios.get("/api/articles/" + name).then(function (response) {
             var article = response.data.data.article;
-            _this.changeTitle(article.title);
             var compiledArticle = _this.compile(article);
             _this.update(function (s) {
               return { article: compiledArticle };
             });
+            _this.changeTitle(article.title);
           });
         });
 
@@ -882,6 +882,7 @@ var ArticlesContext = (function (_Arda$Context) {
             _this.update(function (s) {
               return { articles: articles };
             });
+            _this.changeTitle();
           });
         });
 
@@ -891,6 +892,14 @@ var ArticlesContext = (function (_Arda$Context) {
         subscribe("navigation:clickArticlesButton", function () {
           page("/articles");
         });
+      },
+      writable: true,
+      configurable: true
+    },
+    changeTitle: {
+      value: function changeTitle(title) {
+        var titleNode = document.querySelector("title");
+        titleNode.innerText = "hdemon.info";
       },
       writable: true,
       configurable: true
@@ -948,6 +957,7 @@ var WorksContext = (function (_Arda$Context) {
             _this.update(function (s) {
               return { repositories: repositories };
             });
+            _this.changeTitle();
           });
         });
 
@@ -957,6 +967,14 @@ var WorksContext = (function (_Arda$Context) {
         subscribe("navigation:clickArticlesButton", function () {
           page("/articles");
         });
+      },
+      writable: true,
+      configurable: true
+    },
+    changeTitle: {
+      value: function changeTitle(title) {
+        var titleNode = document.querySelector("title");
+        titleNode.innerText = "hdemon.info";
       },
       writable: true,
       configurable: true
