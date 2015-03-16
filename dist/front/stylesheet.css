@@ -83,4 +83,8 @@ nav {
     background-color: white; }
 
 .slides-container {
-  margin-top: 24px; }
+  margin-top: 24px;
+  display: flex;
+  justify-content: flex-start; }
+  .slides-container .slide {
+    margin-right: 5px; }

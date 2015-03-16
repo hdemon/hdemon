@@ -493,9 +493,7 @@ var Slides = (function (_Arda$Component) {
   function Slides() {
     _classCallCheck(this, Slides);
 
-    if (_Arda$Component != null) {
-      _Arda$Component.apply(this, arguments);
-    }
+    this.slideIds = ["72a01620d1010131678c468f47768a35"];
   }
 
   _inherits(Slides, _Arda$Component);
@@ -503,25 +501,35 @@ var Slides = (function (_Arda$Component) {
   _prototypeProperties(Slides, null, {
     render: {
       value: function render() {
-        return React.createElement(
-          "div",
-          { className: "slides-container" },
-          React.createElement("div", { id: "slide-1", className: "slide" })
-        );
+        return React.createElement("div", { className: "slides-container" });
       },
       writable: true,
       configurable: true
     },
     componentDidMount: {
       value: function componentDidMount() {
+        var _this = this;
+
+        var slidesContainerNode = document.querySelector(".slides-container");
+        this.slideIds.forEach(function (id, index) {
+          var slideNode = document.createElement("div");
+          slideNode.id = "slide-" + index;
+          slideNode.classList.add("slide");
+          slideNode.appendChild(_this.createSlideNode(id));
+          slidesContainerNode.appendChild(slideNode);
+        });
+      },
+      writable: true,
+      configurable: true
+    },
+    createSlideNode: {
+      value: function createSlideNode(id) {
         var script = document.createElement("script");
         script.src = "//speakerdeck.com/assets/embed.js";
-        script.setAttribute("data-id", "72a01620d1010131678c468f47768a35");
+        script.setAttribute("data-id", id);
         script.setAttribute("data-ratio", "1.33333333333333");
         script.classList.add("speakerdeck-embed");
-        var slide1Node = document.getElementById("slide-1");
-
-        slide1Node.appendChild(script);
+        return script;
       },
       writable: true,
       configurable: true
