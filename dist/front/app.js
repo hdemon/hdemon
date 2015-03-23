@@ -410,13 +410,13 @@ var Header = (function (_Arda$Component) {
             null,
             React.createElement(
               "div",
-              { className: "works navigation-button", onClick: this.onClickWorksButton.bind(this) },
-              "works"
+              { className: "articles navigation-button", onClick: this.onClickArticlesButton.bind(this) },
+              "articles"
             ),
             React.createElement(
               "div",
-              { className: "articles navigation-button", onClick: this.onClickArticlesButton.bind(this) },
-              "articles"
+              { className: "works navigation-button", onClick: this.onClickWorksButton.bind(this) },
+              "works"
             )
           ),
           React.createElement(

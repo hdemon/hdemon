@@ -14,8 +14,8 @@ class Header extends Arda.Component {
       <div className="header">
         <div className="title">hdemon.info</div>
         <nav>
-          <div className="works navigation-button" onClick={this.onClickWorksButton.bind(this)}>works</div>
           <div className="articles navigation-button" onClick={this.onClickArticlesButton.bind(this)}>articles</div>
+          <div className="works navigation-button" onClick={this.onClickWorksButton.bind(this)}>works</div>
         </nav>
         <div className="links">
           <a className="qiita-link" href="http://qiita.com/h_demon">qiita</a>
