@@ -403,7 +403,7 @@ var Header = (function (_Arda$Component) {
           React.createElement(
             "div",
             { className: "title" },
-            "hdemon"
+            "hdemon.info"
           ),
           React.createElement(
             "nav",
