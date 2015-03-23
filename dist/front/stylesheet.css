@@ -93,6 +93,7 @@ nav {
 
 .slides-container {
   margin-top: 24px;
+  margin-left: 10px;
   display: flex;
   justify-content: flex-start; }
   .slides-container .slide {
